@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio · Tienda Compraventa</title>
   <link rel="stylesheet" href="public/css/estilos.css">
 </head>
+
 <body class="bg-gradient"> <!-- fondo con degradado que usamos en toda la web -->
 
   <header>
@@ -22,9 +24,11 @@
       </nav>
     </div>
 
-    <div class="container usuario-info">
-      ¡Bienvenido, <strong>Juan</strong>! &nbsp;|&nbsp; Saldo: <strong>€100.00</strong> <!-- esto lo cambiará el backend con el usuario real -->
-    </div>
+    <!-- Usuario y saldo -->
+<div class="container usuario-info" id="usuario-info">
+  ¡Bienvenido, <strong>Juan</strong>! &nbsp;|&nbsp; Saldo: <strong id="saldo-usuario">€0.00</strong>
+</div>
+
   </header>
 
   <section class="hero">
@@ -43,9 +47,13 @@
         <button class="btn btn-small" type="submit">Buscar</button> <!-- el botón que lanza la búsqueda -->
       </form>
 
+      <form action="index.html" method="get" class="busqueda-form">
+        <input type="text" name="busqueda" placeholder="Buscar por nombre...">
+        <button class="btn btn-small" type="submit">Buscar</button>
+      </form>
       <form action="index.html" method="get" class="filtro-form">
-        <select name="estado"> <!-- filtro por estado -->
-          <option value="">Todos los estados</option>
+        <select name="estado">
+          <option value="">Todos</option>
           <option value="nuevo">Nuevo</option>
           <option value="usado">Usado</option>
           <option value="reacondicionado">Reacondicionado</option>
@@ -64,22 +72,19 @@
         </div>
       </div>
 
-      <nav class="paginacion">
-        <a href="?page=1" class="btn btn-small">« Primero</a> <!-- va a la primera página -->
-        <a href="?page=2" class="btn btn-small">‹ Anterior</a>
-        <span>Página 3 de 10</span> <!-- esto debería cambiar con el backend -->
-        <a href="?page=4" class="btn btn-small">Siguiente ›</a>
-        <a href="?page=10" class="btn btn-small">Última »</a>
-      </nav>
+      <nav class="paginacion"></nav>
+
     </div>
   </section>
 
   <footer>
     <div class="container footer-container">
-      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p> <!-- créditos del equipo -->
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p>
+      <!-- créditos del equipo -->
     </div>
   </footer>
 
   <script src="public/js/js.js"></script> <!-- animaciones y efectos -->
 </body>
+
 </html>

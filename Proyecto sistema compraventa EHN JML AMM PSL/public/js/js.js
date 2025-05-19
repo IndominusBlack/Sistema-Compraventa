@@ -72,3 +72,169 @@ document.addEventListener('DOMContentLoaded', () => {
     propiedadesSection.scrollIntoView({ behavior: 'smooth' });  // y bajamos suavemente hacia ella
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.propiedades-grid');
+  const urlParams = new URLSearchParams(window.location.search);
+  const page = urlParams.get('page') || 1;
+  const busqueda = urlParams.get('busqueda') || '';
+  const estado = urlParams.get('estado') || '';
+
+  fetch(`http://localhost:3000/articulos?page=${page}&busqueda=${busqueda}&estado=${estado}`)
+    .then(res => res.json())
+    .then(data => {
+      grid.innerHTML = ''; // limpiamos el grid
+      if (data.length === 0) {
+        grid.innerHTML = '<p style="text-align:center">No hay artículos disponibles.</p>';
+        return;
+      }
+
+      data.forEach(articulo => {
+        const card = document.createElement('div');
+        card.classList.add('propiedad-card');
+        card.innerHTML = `
+          <img src="${articulo.imagen}" alt="${articulo.nombre}">
+          <h3>${articulo.nombre}</h3>
+          <p>${articulo.descripcion}</p>
+          <a href="detalle.html?codigo=${articulo.codigo}" class="btn btn-small">Ver detalle</a>
+        `;
+        grid.appendChild(card); // lo añadimos al HTML
+      });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const codigo = params.get('codigo');
+
+  if (!codigo) return;
+
+  fetch(`http://localhost:3000/articulo/${codigo}`)
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector('.detail-title').textContent = data.nombre;
+      document.querySelector('.detail-price').textContent = `€${data.precio}`;
+      document.querySelector('.detail-state span').textContent = data.estado;
+      document.querySelector('.detail-desc').textContent = data.descripcion;
+      document.querySelector('.detail-image img').src = data.imagen;
+    });
+});
+
+document.querySelector('.btn-buy').addEventListener('click', () => {
+  const codigo = new URLSearchParams(window.location.search).get('codigo');
+  fetch(`http://localhost:3000/comprar/${codigo}`, { method: 'POST' })
+    .then(res => res.json())
+    .then(data => {
+      alert('¡Producto comprado!');
+      window.location.href = 'index.html';
+    });
+});
+
+document.querySelector('.btn-wish').addEventListener('click', () => {
+  const codigo = new URLSearchParams(window.location.search).get('codigo');
+  fetch(`http://localhost:3000/deseos`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ codigo_articulo: codigo, codigo_usuario: 1 }) // Simulado
+  }).then(() => alert('Añadido a tu lista de deseos'));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('deseos-grid');
+  const codigo_usuario = 1; // simulado, más adelante irá por login
+
+  fetch(`http://localhost:3000/deseos/${codigo_usuario}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.length === 0) {
+        grid.innerHTML = '<p style="text-align:center">No tienes artículos en tu lista de deseos.</p>';
+        return;
+      }
+
+      data.forEach(articulo => {
+        const card = document.createElement('div');
+        card.classList.add('propiedad-card');
+        card.innerHTML = `
+          <img src="${articulo.imagen}" alt="${articulo.nombre}">
+          <h3>${articulo.nombre}</h3>
+          <p>${articulo.descripcion}</p>
+          <a href="detalle.html?codigo=${articulo.codigo}" class="btn btn-small">Ver detalle</a>
+        `;
+        grid.appendChild(card);
+      });
+    });
+});
+
+// Este código va en todas las páginas donde muestres el saldo arriba
+document.addEventListener('DOMContentLoaded', () => {
+  const saldoSpan = document.getElementById('saldo-usuario'); // esto es donde va el número
+  const codigo_usuario = 1; // por ahora, el usuario siempre será el 1
+
+  fetch(`http://localhost:3000/usuario/${codigo_usuario}/saldo`)
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.saldo !== undefined) {
+        saldoSpan.textContent = `€${parseFloat(data.saldo).toFixed(2)}`; // pintamos el saldo
+      }
+    });
+});
+
+// Mostrar sección de productos automáticamente si hay parámetros en la URL
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.propiedades-grid');
+  const urlParams = new URLSearchParams(window.location.search);
+  const page = urlParams.get('page') || 1;
+  const busqueda = urlParams.get('busqueda') || '';
+  const estado = urlParams.get('estado') || '';
+
+  fetch(`http://localhost:3000/articulos?page=${page}&busqueda=${busqueda}&estado=${estado}`)
+    .then(res => res.json())
+    .then(data => {
+      grid.innerHTML = '';
+
+      if (data.length === 0) {
+        grid.innerHTML = '<p style="text-align:center">No hay artículos disponibles.</p>';
+        return;
+      }
+
+      data.forEach(articulo => {
+        const card = document.createElement('div');
+        card.classList.add('propiedad-card');
+        card.innerHTML = `
+          <img src="${articulo.imagen}" alt="${articulo.nombre}">
+          <h3>${articulo.nombre}</h3>
+          <p>${articulo.descripcion}</p>
+          <a href="detalle.html?codigo=${articulo.codigo}" class="btn btn-small">Ver detalle</a>
+        `;
+        grid.appendChild(card); // añadimos el producto al grid
+      });
+
+            const paginaActual = parseInt(urlParams.get('page')) || 1; // página actual
+      const paginacion = document.querySelector('.paginacion'); // contenedor
+
+      fetch('http://localhost:3000/articulos-total')
+        .then(res => res.json())
+        .then(data => {
+          const total = data.total;
+          const totalPaginas = Math.ceil(total / 20);
+
+          paginacion.innerHTML = ''; // limpiamos
+
+          if (totalPaginas > 1) {
+            if (paginaActual > 1) {
+              paginacion.innerHTML += `<a href="?page=1" class="btn btn-small">« Primero</a>`;
+              paginacion.innerHTML += `<a href="?page=${paginaActual - 1}" class="btn btn-small">‹ Anterior</a>`;
+            }
+
+            paginacion.innerHTML += `<span>Página ${paginaActual} de ${totalPaginas}</span>`;
+
+            if (paginaActual < totalPaginas) {
+              paginacion.innerHTML += `<a href="?page=${paginaActual + 1}" class="btn btn-small">Siguiente ›</a>`;
+              paginacion.innerHTML += `<a href="?page=${totalPaginas}" class="btn btn-small">Última »</a>`;
+            }
+          }
+        });
+
+    });
+});
+
