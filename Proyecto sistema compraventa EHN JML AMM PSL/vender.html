@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vender · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+<body class="bg-gradient"> <!-- fondo degradado para que quede chulo -->
+
+  <!-- HEADER: menú arriba -->
+  <header>
+    <div class="container header-container"> <!-- centramos y limitamos ancho -->
+      <h1 class="logo">Proyecto compraventa</h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="vender.html" class="active">Vender</a></li> <!-- estamos aquí -->
+          <li><a href="lista-deseos.html">Deseos</a></li>
+          <li><a href="ingresar.html">Ingresar</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORMULARIO PARA SUBIR PRODUCTO -->
+  <main class="container auth-section"> <!-- sección con margen y ancho controlado -->
+    <div class="auth-card"> <!-- la caja blanca donde está el form -->
+      <h2 class="titulo-secundario">Subir un Artículo</h2>
+      <form action="#" method="post" class="auth-form" enctype="multipart/form-data"> <!-- enctype para subir archivos (aunque acá no hay input file) -->
+        
+        <label for="nombre">Nombre del artículo</label>
+        <input type="text" id="nombre" name="nombre" required> <!-- obligatorio, sin nombre no se puede -->
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea> <!-- descripción para que sepan qué vendes -->
+
+        <label for="precio">Precio (€)</label>
+        <input type="number" id="precio" name="precio" step="0.01" required> <!-- precio con decimales -->
+
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado" required> <!-- estado del producto -->
+          <option value="nuevo">Nuevo</option>
+          <option value="usado">Usado</option>
+          <option value="reacondicionado">Reacondicionado</option>
+        </select>
+
+        <label for="imagen">Imagen (URL o nombre de archivo)</label>
+        <input type="text" id="imagen" name="imagen"> <!-- si no se sube foto, se pone link o nombre -->
+
+        <button class="btn btn-buy" type="submit">Subir artículo</button> <!-- botón para mandar todo -->
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER: copy y nombres -->
+  <footer>
+    <div class="container footer-container"> <!-- centrado y margen -->
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="public/js/js.js"></script> <!-- scripts generales -->
+</body>
+</html>
+

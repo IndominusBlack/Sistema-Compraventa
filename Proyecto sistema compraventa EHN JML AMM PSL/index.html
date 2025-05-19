@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+<body class="bg-gradient"> <!-- fondo con degradado que usamos en toda la web -->
+
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">Proyecto Compraventa</h1> <!-- nombre bonito arriba -->
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Inicio</a></li> <!-- esta es la página actual -->
+          <li><a href="vender.html">Vender</a></li>
+          <li><a href="lista-deseos.html">Lista de deseos</a></li>
+          <li><a href="ingresar.html">Ingresar dinero</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container usuario-info">
+      ¡Bienvenido, <strong>Juan</strong>! &nbsp;|&nbsp; Saldo: <strong>€100.00</strong> <!-- esto lo cambiará el backend con el usuario real -->
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Compra y vende tus productos al precio que prefieras</h2>
+      <p>Elementos por parte de nuestros usuarios</p>
+      <a href="#propiedades" class="btn">Ver Elementos</a> <!-- esto hace scroll hacia la sección de productos -->
+    </div>
+  </section>
+
+  <section id="propiedades" class="propiedades-section hidden"> <!-- esta sección está oculta hasta que le den click -->
+    <div class="container">
+
+      <form action="index.html" method="get" class="busqueda-form">
+        <input type="text" name="busqueda" placeholder="Buscar por nombre..." value=""> <!-- busca por nombre -->
+        <button class="btn btn-small" type="submit">Buscar</button> <!-- el botón que lanza la búsqueda -->
+      </form>
+
+      <form action="index.html" method="get" class="filtro-form">
+        <select name="estado"> <!-- filtro por estado -->
+          <option value="">Todos los estados</option>
+          <option value="nuevo">Nuevo</option>
+          <option value="usado">Usado</option>
+          <option value="reacondicionado">Reacondicionado</option>
+        </select>
+        <button class="btn btn-small" type="submit">Filtrar</button>
+      </form>
+
+      <h2 class="titulo-secundario">Elementos Destacados</h2>
+
+      <div class="propiedades-grid">
+        <div class="propiedad-card"> <!-- esto es una sola tarjeta de producto -->
+          <img src="https://via.placeholder.com/400x250" alt="Producto ejemplo"> <!-- imagen fake por ahora -->
+          <h3>Producto Ejemplo</h3>
+          <p>Descripción breve del producto.</p>
+          <a href="detalle.html" class="btn btn-small">Ver detalle</a> <!-- esto lleva a la página del producto -->
+        </div>
+      </div>
+
+      <nav class="paginacion">
+        <a href="?page=1" class="btn btn-small">« Primero</a> <!-- va a la primera página -->
+        <a href="?page=2" class="btn btn-small">‹ Anterior</a>
+        <span>Página 3 de 10</span> <!-- esto debería cambiar con el backend -->
+        <a href="?page=4" class="btn btn-small">Siguiente ›</a>
+        <a href="?page=10" class="btn btn-small">Última »</a>
+      </nav>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-container">
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p> <!-- créditos del equipo -->
+    </div>
+  </footer>
+
+  <script src="public/js/js.js"></script> <!-- animaciones y efectos -->
+</body>
+</html>

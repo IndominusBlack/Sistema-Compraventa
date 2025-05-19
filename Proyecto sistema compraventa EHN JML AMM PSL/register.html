@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+<body class="bg-gradient"> <!-- fondo con degradado para que no quede feo -->
+
+  <!-- HEADER: el menú de navegación -->
+  <header>
+    <div class="container header-container"> <!-- contenedor para centrar y limitar ancho -->
+      <h1 class="logo">Proyecto compraventa</h1> <!-- logo en texto -->
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li> <!-- links para navegar -->
+          <li><a href="vender.html">Vender</a></li>
+          <li><a href="lista-deseos.html">Deseos</a></li>
+          <li><a href="ingresar.html">Ingresar</a></li>
+          <li><a href="register.html" class="active">Registro</a></li> <!-- página en la que estamos -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORMULARIO DE REGISTRO -->
+  <main class="container auth-section"> <!-- seccion principal con padding y ancho controlado -->
+    <div class="auth-card">
+      <h2 class="titulo-secundario">Crear Cuenta</h2>
+
+      <form action="#" method="post" class="auth-form"> <!-- por ahora sin backend real -->
+        <label for="nombre">Nombre</label> <!-- etiqueta para el campo nombre -->
+        <input type="text" id="nombre" name="nombre" required> <!-- campo obligatorio -->
+
+        <label for="correo">Correo</label> <!-- etiqueta para email -->
+        <input type="email" id="correo" name="correo" required> <!-- obligatorio -->
+
+        <label for="telefono">Teléfono</label> <!-- teléfono opcional -->
+        <input type="tel" id="telefono" name="telefono">
+
+        <label for="password">Contraseña</label> <!-- contraseña -->
+        <input type="password" id="password" name="password" required> <!-- obligatorio -->
+
+        <button class="btn btn-buy" type="submit">Registrar</button> <!-- botón para enviar el form -->
+      </form>
+
+      <p class="auth-switch">
+        ¿Ya tienes cuenta? <a href="login.html">Entrar aquí</a> <!-- para los que ya se registraron -->
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER: con copyright -->
+  <footer>
+    <div class="container footer-container"> <!-- para que quede centrado y ordenado -->
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="public/js/js.js"></script>
+</body>
+</html>

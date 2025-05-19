@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar Dinero · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+<body class="bg-gradient"> <!-- Clase para fondo degradado, lo tienes en CSS -->
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-container"> <!-- Contenedor para centrar y limitar ancho -->
+      <h1 class="logo">Proyecto compraventa</h1> <!-- Logo texto, podría ser imagen si quieres -->
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li> <!-- Links para navegar, ojo con la clase active -->
+          <li><a href="vender.html">Vender</a></li>
+          <li><a href="lista-deseos.html">Deseos</a></li>
+          <li><a href="ingresar.html" class="active">Ingresar</a></li> <!-- Página actual marcada con active -->
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORMULARIO DE INGRESO -->
+  <main class="container auth-section"> <!-- Sección principal con margen y centrado -->
+    <div class="auth-card"> <!-- Tarjeta donde va el formulario -->
+      <h2 class="titulo-secundario">Ingresar Saldo</h2> <!-- Título del formulario -->
+
+      <form action="#" method="post" class="auth-form"> <!-- Form sin acción para que luego le metas JS o backend -->
+        <label for="cantidad">Cantidad a ingresar (€)</label> <!-- Etiqueta para el input -->
+        <input type="number" id="cantidad" name="cantidad" step="0.01" placeholder="0.00" required> <!-- Input con decimales -->
+
+        <button class="btn btn-buy" type="submit">Ingresar</button> <!-- Botón para enviar el formulario -->
+      </form>
+
+      <p class="auth-switch">Recuerda revisar tus <a href="index.html">productos</a> favoritos luego de ingresar saldo.</p> <!-- Texto extra con link -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container"> <!-- Footer centrado y con padding -->
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p> <!-- Derechos, fecha fija -->
+    </div>
+  </footer>
+
+  <script src="public/js/js.js"></script> <!-- JS externo para funciones, ojo que la ruta esté bien -->
+</body>
+</html>
