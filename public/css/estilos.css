@@ -1,0 +1,437 @@
+/* ========== GENERAL ========== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap');  /* traemos Playfair y Roboto, básicos de la web */
+
+body {
+  margin: 0;                                 /* quitar margenes por defecto */
+  font-family: 'Roboto', sans-serif;         /* texto legible por defecto */
+  background-color: #0d0d0d;                 /* fondo oscuro base */
+  color: #f5f5f5;                            /* texto claro encima */
+  overflow-x: hidden;                        /* nada de scroll horizontal */ 
+}
+
+.container {
+  max-width: 1200px;                         /* anchura máxima para no estirar todo */
+  margin: auto;                              /* centrar contenedor */
+  padding: 0 2rem;                           /* algo de padding lateral */
+}
+
+header {
+  background-color: rgba(0,0,0,0.8);         /* header semitransparente */
+  padding: 1rem 0;                           /* espacio arriba y abajo */
+  border-bottom: 1px solid #444;             /* línea sutil abajo */
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;    /* logo con estilo elegante */
+  font-size: 2rem;                           /* tamaño del logo */
+  color: gold;                               /* color dorado chulo */
+}
+
+nav ul {
+  list-style: none;                          /* quitar viñetas */
+  display: flex;                             /* menú en fila */
+  gap: 2rem;                                 /* separación entre items */
+  padding: 0;
+}
+
+nav a {
+  color: #f5f5f5;                            /* links claros */
+  text-decoration: none;                     /* sin subrayado */
+  font-weight: bold;                         /* negrita porque mola */
+  transition: color 0.3s;                    /* transición suave */
+}
+
+nav a:hover {
+  color: gold;                               /* hover dorado para saber dónde estás */
+}
+
+.btn {
+  background-color: gold;                    /* botón dorado base */
+  color: #000;                               /* texto negro encima */
+  padding: 0.8rem 2rem;                      /* tamaño cómodo */
+  text-decoration: none;                     /* quitar subrayado */
+  border-radius: 50px;                       /* botones redondeados */
+  font-weight: bold;                         /* texto en negrita */
+  transition: background-color 0.3s;         /* animación suave de fondo */
+}
+
+.btn:hover {
+  background-color: #d4af37;                 /* hover un pelín más oscuro */
+}
+
+/* Footer general */
+footer {
+  background-color: #0b0b0b;                 /* fondo muy oscuro */
+  padding: 2rem 0;                           /* espacio suficiente */
+  text-align: center;                        /* texto centrado */
+  font-size: 0.9rem;                         /* un poco más pequeño */
+  color: #888;                               /* gris suave */
+}
+
+.hidden {
+  display: none;                             /* utilidad: esconder cosas */
+}
+
+
+/* ========== INDEX ========== */
+/* Hero principal */
+.hero {
+  height: 90vh;                              /* casi toda la pantalla */
+  display: flex;
+  align-items: center;                       
+  justify-content: center;                   
+  text-align: center;                        
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 700px;                          /* ancho máximo del texto */
+  z-index: 2;
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;    /* título elegante */
+  font-size: 3rem;                           
+  color: gold;
+  margin-bottom: 1rem;                      
+}
+
+.hero p {
+  font-size: 1.2rem;                          
+  margin-bottom: 2rem;                       
+}
+
+/* Formulario de búsqueda */
+.busqueda-form {
+  display: flex;                            
+  justify-content: center;                  
+  margin: 2rem auto;                        
+  gap: 1rem;                                
+  max-width: 600px;                         
+}
+
+.busqueda-form input {
+  padding: 0.8rem;                          
+  border: 1px solid #333;                   
+  border-radius: 8px;                       
+  background-color: #0d0d0d;                
+  color: #f5f5f5;                           
+  flex: 1;                                   
+}
+
+.busqueda-form input:focus {
+  outline: none;
+  border-color: gold;                       
+}
+
+/* Formulario de filtro */
+.filtro-form {
+  display: flex;
+  justify-content: center;                  
+  margin-bottom: 2rem;                      
+  gap: 1rem;
+  max-width: 400px;
+  margin-left: auto;                        
+  margin-right: auto;
+}
+
+.filtro-form select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+}
+
+.propiedades-section {
+  background-color: #111;
+  padding: 4rem 0;
+}
+
+.titulo-secundario {
+  text-align: center;
+  color: gold;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* INDEX: grid de 4 columnas y tarjetas uniformes */
+.propiedades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);     /* 4 tarjetas por fila */
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+.propiedad-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(212,175,55,0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 380px;                              /* altura fija */
+}
+
+.propiedad-card:hover {
+  transform: translateY(-5px);
+}
+
+.propiedad-image {
+  width: 100%;
+  height: 180px;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.propiedad-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.propiedad-card h3 {
+  color: gold;
+  font-size: 1.2rem;
+  margin: 0.75rem 1rem 0.25rem;
+  text-align: center;
+}
+
+.propiedad-card p {
+  color: #ccc;
+  margin: 0 1rem 1rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.propiedad-card .btn-small {
+  margin: 0 1rem 1rem;
+  text-align: center;
+}
+
+
+.propiedad-card p {
+  color: #ccc;
+  margin: 0 1rem 1rem;
+}
+
+/* Paginación */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.paginacion .btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+
+/* ========== DETALLES ========== */
+.detail-main {
+  padding: 4rem 0;                           /* separador arriba/abajo */
+}
+
+.detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;            
+  gap: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 4rem;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);               /* levantita al hover */
+  box-shadow: 0 6px 30px rgba(0,0,0,0.75);
+}
+
+.detail-image img {
+  width: 100%;
+  display: block;
+}
+
+.detail-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+.detail-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+}
+
+.detail-state {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-state span {
+  font-weight: bold;
+  color: #ccc;
+}
+
+.detail-desc {
+  flex-grow: 1;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+.detail-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-buy {                                    
+  background-color: gold;                    /* boton comprar */
+  color: #000;
+  flex: 1;                                   /* ocupa mismo espacio */
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-buy:hover {
+  background-color: #d4af37;                 /* hover en dorado oscuro */
+  transform: translateY(-2px);
+}
+
+.btn-wish {                                   
+  background-color: transparent;             /* boton deseos */
+  color: gold;
+  border: 2px solid gold;
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-wish:hover {
+  background-color: gold;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Móvil: stack en detalle */
+@media (max-width: 768px) {
+  .detail-card {
+    grid-template-columns: 1fr;             /* apilo columnas en móvil */
+  }
+  .detail-image,
+  .detail-info {
+    padding: 1rem;
+  }
+}
+
+
+/* ========== AUTH (LOGIN / REGISTER) ========== */
+.bg-gradient {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);  /* degradado oscuro padre */
+  min-height: 100vh;                                             /* ocupa todo el alto */
+}
+
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;                                              /* espacio arriba/abajo */
+}
+
+.auth-card {
+  background-color: #1a1a1a;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.85);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form label {
+  font-weight: bold;
+  color: #ccc;
+}
+
+.auth-form input,
+.auth-form textarea,
+.auth-form select {
+  padding: 0.8rem 1rem;                                         /* inputs cómodos */
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus,
+.auth-form textarea:focus,
+.auth-form select:focus {
+  outline: none;
+  border-color: gold;                                          /* foco dorado */
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1rem;
+  color: #aaa;
+}
+
+.auth-switch a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}

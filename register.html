@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+<body class="bg-gradient">
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">Proyecto compraventa</h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="vender.html">Vender</a></li>
+          <li><a href="lista-deseos.html">Deseos</a></li>
+          <li><a href="ingresar.html">Ingresar</a></li>
+          <li><a href="register.html" class="active">Registro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORMULARIO DE REGISTRO -->
+  <main class="container auth-section">
+    <div class="auth-card">
+      <h2 class="titulo-secundario">Crear Cuenta</h2>
+
+      <form class="auth-form">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono">
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" required>
+
+        <button class="btn btn-buy" type="submit">Registrar</button>
+      </form>
+
+      <p class="auth-switch">
+        ¿Ya tienes cuenta? <a href="login.html">Entrar aquí</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="public/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio · Tienda Compraventa</title>
+  <link rel="stylesheet" href="public/css/estilos.css">
+</head>
+
+<body class="bg-gradient">
+
+  <!-- HEADER con logo, nav y saldo -->
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">Proyecto Compraventa</h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="vender.html">Vender</a></li>
+          <li><a href="lista-deseos.html">Deseos</a></li>
+          <li><a href="ingresar.html">Ingresar dinero</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container usuario-info" id="usuario-info">
+      <!-- Se rellena desde js.js -->
+    </div>
+  </header>
+
+  <!-- HERO banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Compra y vende tus productos al precio que prefieras</h2>
+      <p>Elementos por parte de nuestros usuarios</p>
+      <a href="#propiedades" class="btn">Ver Elementos</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PRODUCTOS -->
+  <section id="propiedades" class="propiedades-section hidden">
+    <div class="container">
+
+      <!-- búsqueda -->
+      <form class="busqueda-form">
+        <input type="text" name="busqueda" placeholder="Buscar por nombre...">
+        <button class="btn btn-small" type="submit">Buscar</button>
+      </form>
+
+      <!-- filtro por estado -->
+      <form class="filtro-form">
+        <select name="estado">
+          <option value="">Todos</option>
+          <option value="nuevo">Nuevo</option>
+          <option value="usado">Usado</option>
+          <option value="reacondicionado">Reacondicionado</option>
+        </select>
+        <button class="btn btn-small" type="submit">Filtrar</button>
+      </form>
+
+      <h2 class="titulo-secundario">Elementos Recientes</h2>
+
+      <!-- grid inyectado por js.js -->
+      <div class="propiedades-grid"></div>
+
+      <!-- paginación inyectada por js.js -->
+      <nav class="paginacion"></nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy;2025 Juan Martín | Eduardo Heras | Ángela Mora | Pablo Sánchez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Lógica JS centralizada -->
+  <script src="public/js/js.js"></script>
+</body>
+
+</html>
